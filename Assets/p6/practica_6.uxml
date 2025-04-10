@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/plantilla_p4.uss?fileID=7433441132597879392&amp;guid=3674e98252f592240b9c1c4f8766a2a7&amp;type=3#plantilla_p4" />
+    <ui:VisualElement name="contenedor" style="flex-grow: 1; white-space: normal; flex-direction: row;">
+        <ui:VisualElement name="Izda" style="flex-grow: 0; width: 350px; flex-shrink: 0;">
+            <ui:VisualElement name="header" style="flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement name="Color1" style="flex-grow: 1; background-image: resource(&apos;negro&apos;);" />
+                <ui:VisualElement name="Color2" style="flex-grow: 1; background-image: resource(&apos;rojo&apos;);" />
+                <ui:VisualElement name="Color3" style="flex-grow: 1; background-image: resource(&apos;verde&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="body" style="flex-grow: 1;">
+                <ui:TextField picking-mode="Ignore" label="Nombre" value="escribe aquí nombre" name="InputNombre" style="flex-grow: 0; flex-shrink: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="body" style="flex-grow: 1;">
+                <ui:TextField picking-mode="Ignore" label="Apellido&#x9;" value="escribe aquí apellido" name="InputApellido" />
+            </ui:VisualElement>
+            <ui:VisualElement name="footer" style="flex-grow: 1;">
+                <ui:Toggle label="Modificar" name="ToggleModificar" />
+                <ui:Button text="Crear" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BotonCrear" />
+                <ui:Button text="Guardar JSON" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Guardar" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Dcha" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-self: center; justify-content: flex-start; align-items: flex-start;" />
+    </ui:VisualElement>
+</ui:UXML>

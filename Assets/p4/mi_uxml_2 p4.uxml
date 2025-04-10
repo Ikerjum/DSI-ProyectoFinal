@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/plantilla_p4.uss?fileID=7433441132597879392&amp;guid=3674e98252f592240b9c1c4f8766a2a7&amp;type=3#plantilla_p4" />
+    <Lab4_2 />
+    <Lab4_3 style="flex-direction: row; flex-wrap: wrap;" />
+</ui:UXML>

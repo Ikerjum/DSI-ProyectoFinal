@@ -1,0 +1,18 @@
+{
+    "Individuos": [
+        {
+            "nombre": "a",
+            "apellido": "b",
+            "bgImage": {
+                "instanceID": 16796
+            }
+        },
+        {
+            "nombre": "a",
+            "apellido": "c",
+            "bgImage": {
+                "instanceID": 16784
+            }
+        }
+    ]
+}

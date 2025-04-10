@@ -1,0 +1,33 @@
+.header_uss {
+    flex-grow: 1;
+    background-color: rgb(9, 140, 61);
+    border-left-color: rgb(1, 43, 7);
+    border-right-color: rgb(1, 43, 7);
+    border-top-color: rgb(1, 43, 7);
+    border-bottom-color: rgb(1, 43, 7);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.item {
+    flex-grow: 1;
+    background-color: rgb(9, 140, 107);
+    border-left-color: rgb(1, 43, 22);
+    border-right-color: rgb(1, 43, 22);
+    border-top-color: rgb(1, 43, 22);
+    border-bottom-color: rgb(1, 43, 22);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
