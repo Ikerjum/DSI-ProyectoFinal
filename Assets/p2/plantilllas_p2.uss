@@ -1,0 +1,70 @@
+.rojo {
+    background-color: rgb(184, 0, 0);
+}
+
+.azul {
+    flex-grow: 1;
+    background-color: rgb(59, 202, 226);
+}
+
+.verde {
+    flex-grow: 1;
+    background-color: rgb(11, 235, 0);
+}
+
+.amarillo {
+    flex-grow: 1;
+    background-color: rgb(227, 235, 0);
+}
+
+.caja:hover {
+    flex-grow: 1;
+    width: 50%;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    align-self: stretch;
+    height: 30%;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    scale: 1.1 1.1;
+    rotate: 3deg;
+}
+
+.caja {
+    flex-grow: 1;
+    width: 50%;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    align-self: stretch;
+    height: 30%;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    scale: 1 1;
+    rotate: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}

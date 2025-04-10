@@ -1,0 +1,63 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="contenedor" style="flex-grow: 1; white-space: normal; flex-direction: row;">
+        <ui:VisualElement name="Izda" style="flex-grow: 1;">
+            <ui:VisualElement name="header" style="flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;negro&apos;);" />
+                <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;rojo&apos;);" />
+                <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;verde&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="body" style="flex-grow: 1;">
+                <ui:TextField picking-mode="Ignore" label="Nombre" value="escribe aquí nombre" name="InputNombre" style="flex-grow: 0; flex-shrink: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="footer" style="flex-grow: 1;">
+                <ui:TextField picking-mode="Ignore" label="Apellido&#x9;" value="escribe aquí apellido" name="InputApellido" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Dcha" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+            <ui:VisualElement name="Tarjeta1" style="height: 150px; align-self: center; align-items: center; justify-content: center;">
+                <ui:VisualElement name="plantilla" style="flex-grow: 1;">
+                    <ui:VisualElement name="top" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Resources/rojo.png?fileID=2800000&amp;guid=57a1c9db6c17d8241b5759b138a7b693&amp;type=3#rojo&quot;); padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" />
+                    <ui:VisualElement name="mid" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="chaka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Nombre" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="bottom" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="waka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Apellido" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Tarjeta2" style="height: 150px; justify-content: center; align-items: center; align-self: center;">
+                <ui:VisualElement name="plantilla" style="flex-grow: 1;">
+                    <ui:VisualElement name="top" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Resources/rojo.png?fileID=2800000&amp;guid=57a1c9db6c17d8241b5759b138a7b693&amp;type=3#rojo&quot;); padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" />
+                    <ui:VisualElement name="mid" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="chaka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Nombre" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="bottom" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="waka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Apellido" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Tarjeta3" style="height: 150px; align-items: center; justify-content: center; align-self: center;">
+                <ui:VisualElement name="plantilla" style="flex-grow: 1;">
+                    <ui:VisualElement name="top" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Resources/rojo.png?fileID=2800000&amp;guid=57a1c9db6c17d8241b5759b138a7b693&amp;type=3#rojo&quot;); padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" />
+                    <ui:VisualElement name="mid" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="chaka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Nombre" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="bottom" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="waka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Apellido" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Tarjeta4" style="height: 150px; align-items: center; justify-content: center; align-self: center;">
+                <ui:VisualElement name="plantilla" style="flex-grow: 1;">
+                    <ui:VisualElement name="top" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Resources/rojo.png?fileID=2800000&amp;guid=57a1c9db6c17d8241b5759b138a7b693&amp;type=3#rojo&quot;); padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" />
+                    <ui:VisualElement name="mid" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="chaka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Nombre" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="bottom" style="flex-grow: 1;">
+                        <ui:Label tabindex="-1" text="waka" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Apellido" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

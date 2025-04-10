@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/p4/plantilla_p4.uss?fileID=7433441132597879392&amp;guid=3674e98252f592240b9c1c4f8766a2a7&amp;type=3#plantilla_p4" />
+    <ui:VisualElement name="Caja" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; width: 200px; height: auto;">
+        <ui:VisualElement name="Caja1" class="caja caja2" />
+        <ui:VisualElement name="Caja2" class="caja caja2" />
+        <ui:VisualElement name="Caja3" class="caja caja2" />
+        <ui:VisualElement name="Caja4" class="caja caja2" />
+    </ui:VisualElement>
+</ui:UXML>

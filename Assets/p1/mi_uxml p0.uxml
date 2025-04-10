@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/header_uss.uss?fileID=7433441132597879392&amp;guid=c3c3990c355265a4dae3e3e92d815d1a&amp;type=3#header_uss" />
+    <ui:VisualElement name="header" class="header_uss" style="flex-grow: 1; background-color: rgb(9, 140, 61); border-left-color: rgb(1, 43, 7); border-right-color: rgb(1, 43, 7); border-top-color: rgb(1, 43, 7); border-bottom-color: rgb(1, 43, 7); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px;" />
+    <ui:VisualElement name="body" style="flex-grow: 1;">
+        <ui:VisualElement name="item1" class="item" style="flex-grow: 1;" />
+        <ui:VisualElement name="item2" class="item" style="flex-grow: 1;" />
+        <ui:VisualElement name="item3" class="item" style="flex-grow: 1;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="footer" class="header_uss" style="flex-grow: 1;" />
+</ui:UXML>

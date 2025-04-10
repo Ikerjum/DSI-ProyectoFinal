@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/p2/plantilllas_p2.uss?fileID=7433441132597879392&amp;guid=c08e8f25448992145ba982e59583b966&amp;type=3#plantilllas_p2" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="top" style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="iz" class="azul">
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" style="align-items: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="mid" class="plantilla2 rojo" style="flex-grow: 1;" />
+            <ui:VisualElement name="der" class="verde" />
+        </ui:VisualElement>
+        <ui:VisualElement name="middle" style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="iz" class="plantilla3 verde" style="flex-grow: 1;" />
+            <ui:VisualElement name="mid" class="plantilla azul" style="flex-grow: 1;">
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" style="align-items: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="der" class="plantilla2 rojo" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom" style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="iz" class="plantilla2 rojo" style="flex-grow: 1;">
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" style="align-items: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="mid" class="plantilla3 verde" style="flex-grow: 1;" />
+            <ui:VisualElement name="der" class="plantilla azul" style="flex-grow: 1;">
+                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" style="align-items: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

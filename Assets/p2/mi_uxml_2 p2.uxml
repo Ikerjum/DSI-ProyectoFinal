@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/p2/plantilllas_p2.uss?fileID=7433441132597879392&amp;guid=c08e8f25448992145ba982e59583b966&amp;type=3#plantilllas_p2" />
+    <ui:VisualElement name="Contenedor" style="flex-grow: 1;">
+        <ui:VisualElement name="Pestanyas" style="flex-grow: 1; flex-direction: row; height: auto; align-items: flex-start; flex-wrap: wrap; display: flex;">
+            <ui:VisualElement name="Azul" class="azul" style="flex-grow: 1; align-self: stretch; align-items: center; justify-content: space-around;">
+                <ui:Label tabindex="-1" text="Azul" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Verde" class="verde" style="flex-grow: 1; align-self: stretch; align-items: center; justify-content: space-around;">
+                <ui:Label tabindex="-1" text="Verde" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Ambar" class="amarillo" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center;">
+                <ui:Label tabindex="-1" text="Ambar" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Contenido" style="flex-grow: 1;">
+            <ui:VisualElement name="Azul" class="azul" style="display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; justify-content: space-around; align-self: stretch; flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Cosas azules" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" style="align-items: stretch; justify-content: center; align-self: center;" />
+                <ui:Slider label="Slider azul" high-value="100" name="mana" />
+                <ui:Foldout text="Foldout azul" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Verde" class="verde" style="display: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; justify-content: space-around; align-self: stretch; flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Cosas verdes" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" style="align-items: stretch; justify-content: center; align-self: center;" />
+                <ui:Slider label="Slider verde" high-value="100" />
+                <ui:Foldout text="Foldout verde" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Ambar" class="amarillo" style="display: none; flex-direction: column; flex-wrap: nowrap; align-items: stretch; justify-content: space-around; align-self: stretch; flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Cosas ambar" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" style="align-items: stretch; justify-content: center; align-self: center;" />
+                <ui:Slider label="Slider ambar" high-value="100" />
+                <ui:Foldout text="Foldout ambar" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
