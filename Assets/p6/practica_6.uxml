@@ -17,6 +17,7 @@
                 <ui:Toggle label="Modificar" name="ToggleModificar" />
                 <ui:Button text="Crear" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BotonCrear" />
                 <ui:Button text="Guardar JSON" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Guardar" />
+                <ui:Button text="Cargar JSON" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Cargar" enable-rich-text="true" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Dcha" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-self: center; justify-content: flex-start; align-items: flex-start;" />

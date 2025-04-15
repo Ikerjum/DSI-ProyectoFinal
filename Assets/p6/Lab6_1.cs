@@ -17,13 +17,18 @@ namespace Lab6_namespace
         VisualElement Color1;
         VisualElement Color2;
         VisualElement Color3;
+        
+        List<IndividuoP6> individuos;
         IndividuoP6 individuoSelec;
         VisualElement guardar;
+        VisualElement cargar;
 
         List<IndividuoP6> list_individuos = new List<IndividuoP6>();
         private void OnEnable()
         {
             VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+
+            individuos = BaseDatosP6.getData();
 
             contenedor_dcha = root.Q<VisualElement>("Dcha");
             input_nombre = root.Q<TextField>("InputNombre");
@@ -36,6 +41,7 @@ namespace Lab6_namespace
             Color3 = root.Q<VisualElement>("Color3");
 
             guardar = root.Q<Button>("Guardar");
+            cargar = root.Q<Button>("Cargar");
             
             contenedor_dcha.RegisterCallback<ClickEvent>(seleccionTarjeta);
 
@@ -43,6 +49,7 @@ namespace Lab6_namespace
             input_nombre.RegisterCallback<ChangeEvent<string>>(CambioNombre);
             input_apellido.RegisterCallback<ChangeEvent<string>>(CambioApellido);
             guardar.RegisterCallback<ClickEvent>(GuardarJson);
+            cargar.RegisterCallback<ClickEvent>(CargarJson);
 
             Color1.RegisterCallback<ClickEvent>(CambiarColorFondoTarjeta);
             Color2.RegisterCallback<ClickEvent>(CambiarColorFondoTarjeta);
@@ -55,6 +62,26 @@ namespace Lab6_namespace
             string path = Path.Combine(Application.dataPath, "Resources", "individuos.json");
             File.WriteAllText(path, json);
             Debug.Log("Guardado en: " + path);
+        }
+        
+
+        void CargarJson(ClickEvent evt)
+        {
+            Debug.Log("CargarJson");
+            for (int i = 0; i < individuos.Count; i++)
+            {
+                VisualTreeAsset plantilla = Resources.Load<VisualTreeAsset>("Tarjeta");
+                VisualElement tarjetaPlantilla = plantilla.Instantiate();
+
+                contenedor_dcha.Add(tarjetaPlantilla);
+
+                tarjetas_borde_negro();
+                tarjeta_borde_blanco(tarjetaPlantilla);
+
+                IndividuoP6 individuo = individuos[i];
+                TarjetaP6 tarjeta = new TarjetaP6(tarjetaPlantilla, individuo);
+                list_individuos.Add(individuo);
+            }
         }
 
         void NuevaTarjeta(ClickEvent evt)

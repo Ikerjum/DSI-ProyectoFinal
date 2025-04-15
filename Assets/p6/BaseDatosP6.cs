@@ -15,15 +15,19 @@ namespace Lab6_namespace
             List<IndividuoP6> datos = new List<IndividuoP6>();
 
             Sprite imagen = Resources.Load<Sprite>("rojo");
-            IndividuoP6 perico = new IndividuoP6("Perico", "Palotes", imagen);
-            IndividuoP6 tornasol = new IndividuoP6("Tornasol", "Tornasolado", imagen);
-            IndividuoP6 luca = new IndividuoP6("Luca", "Lucatell", imagen);
-            IndividuoP6 ivan = new IndividuoP6("Ivan", "Ivanovich", imagen);
 
-            datos.Add(perico);
-            datos.Add(tornasol);
-            datos.Add(luca);
-            datos.Add(ivan);
+            string jsonPath = "individuos";
+            TextAsset jsonFile = Resources.Load<TextAsset>(jsonPath);
+
+            if (jsonFile != null)
+            {
+                string jsonString = jsonFile.text;
+                datos = JsonHelperIndividuo.FromJson<IndividuoP6>(jsonString);
+            }
+            else
+            {
+                Debug.LogError("No se encontró el archivo JSON en Resources.");
+            }
 
             return datos;
         }
