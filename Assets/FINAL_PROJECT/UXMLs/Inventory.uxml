@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="Object" src="project://database/Assets/FINAL_PROJECT/UXMLs/Object.uxml?fileID=9197481963319205126&amp;guid=0632ff3544b113f4cbc82fbf469a7363&amp;type=3#Object" />
+    <ui:VisualElement name="InventoryMenu" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="Inventory" style="flex-grow: 1; height: auto; width: 65%; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; flex-direction: column;">
+            <ui:VisualElement name="TitleInventory" style="flex-grow: initial; flex-shrink: initial;">
+                <ui:Label tabindex="-1" text="INVENTORY" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font: initial; -unity-font-style: bold; -unity-text-align: middle-center; white-space: nowrap; font-size: 57px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="DisplayInventory" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+                <ui:VisualElement style="flex-grow: 1; height: auto; width: auto;">
+                    <ui:Instance template="Object" name="Object" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; height: auto;">
+                    <ui:Instance template="Object" name="Object" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; height: auto;">
+                    <ui:Instance template="Object" name="Object" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; height: auto;">
+                    <ui:Instance template="Object" name="Object" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; height: auto;">
+                    <ui:Instance template="Object" name="Object" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; height: auto;">
+                    <ui:Instance template="Object" name="Object" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="ItemCreation" style="flex-grow: 1; width: 35%;">
+            <ui:VisualElement style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
