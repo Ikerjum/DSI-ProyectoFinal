@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <DurabilityCustomControl style="flex-direction: row; justify-content: space-around;" />
+</ui:UXML>

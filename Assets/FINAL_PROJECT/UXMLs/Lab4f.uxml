@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/Lab4f.uss?fileID=7433441132597879392&amp;guid=713b9f1ec5a7c45419b33324ff83dccf&amp;type=3#Lab4f" />
+    <Lab4f EstadoDefensa="0" EstadoAtaque="0" />
+</ui:UXML>

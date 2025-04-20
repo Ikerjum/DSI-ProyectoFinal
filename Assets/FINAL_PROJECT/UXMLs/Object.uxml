@@ -9,25 +9,13 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Bottom" style="flex-grow: 0; height: 40%;">
-            <ui:VisualElement name="Fuerza" style="flex-grow: 1;">
+            <ui:VisualElement name="Fuerza" tabindex="0" style="flex-grow: 1;">
                 <ui:Label tabindex="-1" text="Fuerza" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LabelFuerza" style="align-items: center; justify-content: center; align-self: center;" />
-                <ui:VisualElement name="FuerzaImgs" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-self: center; align-items: center; justify-content: center;">
-                    <ui:VisualElement name="f1" style="flex-grow: 1; background-image: resource(&apos;sword&apos;); height: 100%;" />
-                    <ui:VisualElement name="f2" style="flex-grow: 1; background-image: resource(&apos;sword&apos;); height: 100%;" />
-                    <ui:VisualElement name="f3" style="flex-grow: 1; background-image: resource(&apos;sword&apos;); height: 100%;" />
-                    <ui:VisualElement name="f4" style="flex-grow: 1; background-image: resource(&apos;sword&apos;); height: 100%;" />
-                    <ui:VisualElement name="f5" style="flex-grow: 1; background-image: resource(&apos;sword&apos;); height: 100%;" />
-                </ui:VisualElement>
+                <AttackCustomControl EstadoAtaque="3" style="flex-direction: row; flex-grow: 1; justify-content: space-around; align-self: auto;" />
             </ui:VisualElement>
             <ui:VisualElement name="Defensa" style="flex-grow: 1;">
-                <ui:Label tabindex="-1" text="Defensa" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LabelDefensa" style="align-items: center; justify-content: center; align-self: center;" />
-                <ui:VisualElement name="DefensaImgs" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-self: center; align-items: center; justify-content: center;">
-                    <ui:VisualElement name="d1" style="flex-grow: 1; background-image: resource(&apos;shield&apos;); height: 100%;" />
-                    <ui:VisualElement name="d2" style="flex-grow: 1; background-image: resource(&apos;shield&apos;); height: 100%;" />
-                    <ui:VisualElement name="d3" style="flex-grow: 1; background-image: resource(&apos;shield&apos;); height: 100%;" />
-                    <ui:VisualElement name="d4" style="flex-grow: 1; background-image: resource(&apos;shield&apos;); height: 100%;" />
-                    <ui:VisualElement name="d5" style="flex-grow: 1; background-image: resource(&apos;shield&apos;); height: 100%;" />
-                </ui:VisualElement>
+                <ui:Label tabindex="-1" text="Durabilidad" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LabelDefensa" style="align-items: center; justify-content: center; align-self: center;" />
+                <DurabilityCustomControl EstadoDurabilidad="5" style="flex-direction: row; flex-grow: 1; justify-content: space-around;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
