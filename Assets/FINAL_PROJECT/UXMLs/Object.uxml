@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="Object">
+    <ui:VisualElement name="Object" style="flex-grow: 1; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; background-color: rgb(255, 255, 255);">
         <ui:VisualElement name="Top" style="flex-grow: 0; height: 45%;">
             <ui:VisualElement name="Name" style="flex-grow: 0; height: 15%; justify-content: center; align-self: center; align-items: center;">
                 <ui:Label tabindex="-1" text="NOMBRE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LabelNombre" style="justify-content: flex-start; align-self: auto; align-items: auto; -unity-text-align: middle-center; height: 9px; width: 54px; white-space: nowrap; text-overflow: clip;" />
@@ -11,11 +11,11 @@
         <ui:VisualElement name="Bottom" style="flex-grow: 0; height: 55%;">
             <ui:VisualElement name="Fuerza" tabindex="0" style="flex-grow: 1;">
                 <ui:Label tabindex="-1" text="FUERZA" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LabelFuerza" style="align-items: center; justify-content: center; align-self: center; height: 20%; -unity-text-align: middle-center;" />
-                <AttackCustomControl EstadoAtaque="3" style="flex-direction: row; flex-grow: 1; justify-content: space-around; align-self: auto;" />
+                <AttackCustomControl EstadoAtaque="2" style="flex-direction: row; flex-grow: 1; justify-content: space-around; align-self: auto; align-items: center;" />
             </ui:VisualElement>
             <ui:VisualElement name="Defensa" style="flex-grow: 1;">
                 <ui:Label tabindex="-1" text="DURABILIDAD" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LabelDefensa" style="align-items: center; justify-content: center; align-self: center; height: 20%; -unity-text-align: middle-center;" />
-                <DurabilityCustomControl EstadoDurabilidad="5" style="flex-direction: row; flex-grow: 1; justify-content: space-around; height: 80%;" />
+                <DurabilityCustomControl EstadoDurabilidad="5" style="flex-direction: row; flex-grow: 1; justify-content: space-around; height: 80%; align-items: center;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

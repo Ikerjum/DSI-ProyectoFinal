@@ -55,8 +55,8 @@ public class AttackCustomControl : VisualElement
         for (int i = 0; i < 5; i++)
         {
             Espadas[i] = new VisualElement();
-            Espadas[i].style.width = 60;
-            Espadas[i].style.height = 60;
+            Espadas[i].style.width = 50;
+            Espadas[i].style.height = 50;
             Espadas[i].style.backgroundColor = new Color(1f, 0f, 0f, 1f); // Rojo con opacidad 100%
             Espadas[i].style.backgroundImage = new StyleBackground(Swords);
             Espadas[i].AddToClassList("panel_round");
