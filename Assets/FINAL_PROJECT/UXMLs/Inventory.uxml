@@ -1,39 +1,33 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:Template name="Object" src="project://database/Assets/FINAL_PROJECT/UXMLs/Object.uxml?fileID=9197481963319205126&amp;guid=0632ff3544b113f4cbc82fbf469a7363&amp;type=3#Object" />
     <ui:VisualElement name="InventoryMenu" style="flex-grow: 1; flex-direction: row;">
-        <ui:VisualElement name="Inventory" style="flex-grow: 1; height: auto; width: 65%; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; flex-direction: column; background-color: rgb(128, 128, 128);">
-            <ui:VisualElement name="TitleInventoryContainer" style="flex-grow: 0; flex-direction: row; height: auto;">
-                <ui:Button text="X" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 80px;" />
+        <ui:VisualElement name="Inventory" style="flex-grow: 1; height: auto; width: 65%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); flex-direction: column; background-color: rgb(128, 128, 128);">
+            <ui:VisualElement name="TitleInventoryContainer" style="flex-grow: 0; flex-direction: row;">
+                <ui:Button name="CloseInventoryButton" text="X" style="width: 80px;" />
                 <ui:VisualElement style="flex-grow: 1; align-items: center;">
-                    <ui:Label text="INVENTORY" style="-unity-font: initial; -unity-font-style: bold; -unity-text-align: upper-center; white-space: nowrap; font-size: 57px; visibility: visible; height: 80px; width: 360px;" />
+                    <ui:Label text="INVENTORY" style="-unity-font-style: bold; -unity-text-align: upper-center; font-size: 57px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="DisplayInventoryContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; height: auto;">
-                <ui:VisualElement style="flex-grow: 1; height: 50%; width: 33%; min-height: auto;">
-                    <ui:Instance template="Object" name="Object" style="flex-grow: 1;" />
-                </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1; height: 50%; width: 33%; min-height: auto;">
-                    <ui:Instance template="Object" name="Object" style="flex-grow: 1;" />
-                </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1; height: 50%; width: 33%; min-height: auto;">
-                    <ui:Instance template="Object" name="Object" style="flex-grow: 1;" />
-                </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1; height: 50%; width: 33%; min-height: auto;">
-                    <ui:Instance template="Object" name="Object" style="flex-grow: 1; display: flex; visibility: visible;" />
-                </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1; height: 50%; width: 33%; min-height: auto;">
-                    <ui:Instance template="Object" name="Object" style="flex-grow: 1; display: flex; visibility: visible;" />
-                </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1; height: 50%; width: 33%; min-height: auto;">
-                    <ui:Instance template="Object" name="Object" style="flex-grow: 1; display: flex; visibility: visible;" />
-                </ui:VisualElement>
+            <ui:VisualElement name="InventoryContainerList" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; height: auto;">
+                <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
+                <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
+                <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
+                <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
+                <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
+                <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="ItemCreation" style="flex-grow: 1; width: 35%; border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; background-color: rgb(128, 128, 128);">
-            <ui:VisualElement name="TitleInventory" style="flex-grow: initial; flex-shrink: initial;">
-                <ui:Label tabindex="-1" text="CREATION" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font: initial; -unity-font-style: bold; -unity-text-align: middle-center; white-space: nowrap; font-size: 57px;" />
+        <ui:VisualElement name="ItemCreation" style="flex-grow: 1; width: 35%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); flex-direction: column;">
+            <ui:VisualElement name="TitleInventory">
+                <ui:Label text="CREATION" style="-unity-font-style: bold; -unity-text-align: middle-center; font-size: 57px;" />
             </ui:VisualElement>
-            <ui:VisualElement name="DisplayInventory" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;" />
+            <ui:VisualElement name="DisplayInventory" style="flex-grow: 1; flex-direction: column; justify-content: space-between;">
+                <ui:TextField name="InputNombre" label="Nombre" style="margin-bottom: 10px;" />
+                <ui:IntegerField name="InputFuerza" label="Fuerza" style="margin-bottom: 10px;" />
+                <ui:IntegerField name="InputDefensa" label="Defensa" style="margin-bottom: 10px;" />
+                <ui:DropdownField name="DropdownTipo" label="Tipo de Objeto" style="margin-bottom: 10px;" />
+                <ui:Toggle name="ToggleModificar" label="Modificar" style="margin-bottom: 10px;" />
+                <ui:Button name="BotonCrear" text="Crear / Modificar Objeto" style="margin-top: 15px; height: 40px;" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

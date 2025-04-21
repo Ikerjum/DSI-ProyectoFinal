@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Object" style="flex-grow: 1; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; background-color: rgb(255, 255, 255);">
+        <ui:VisualElement name="Top" style="flex-grow: 0; height: 45%;">
+            <ui:VisualElement name="LabelNombre" style="flex-grow: 0; height: 15%; justify-content: center; align-self: center; align-items: center;">
+                <ui:Label name="LabelNombre" text="NOMBRE" style="justify-content: center; align-self: center; align-items: center; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="LabelTipo" style="height: 15%; justify-content: center; align-items: center; background-color: rgb(0, 0, 0); flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Bottom" style="flex-grow: 0; height: 55%;">
+            <ui:VisualElement name="LabelFuerza" style="flex-grow: 1;">
+                <ui:Label name="LabelFuerza" text="FUERZA" style="align-items: center; justify-content: center; align-self: center; height: 20%; -unity-text-align: middle-center;" />
+                <AttackCustomControl EstadoAtaque="2" style="flex-direction: row; flex-grow: 1; justify-content: space-around; align-self: auto; align-items: center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="LabelDefensa" style="flex-grow: 1;">
+                <ui:Label name="LabelDefensa" text="DURABILIDAD" style="align-items: center; justify-content: center; align-self: center; height: 20%; -unity-text-align: middle-center;" />
+                <DurabilityCustomControl EstadoDurabilidad="5" style="flex-direction: row; flex-grow: 1; justify-content: space-around; height: 80%; align-items: center;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
