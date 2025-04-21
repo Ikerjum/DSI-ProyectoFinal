@@ -50,10 +50,6 @@ namespace Project
             // Obtener todos los Containers (VisualElements con instancia del template dentro)
             listaContenedores = listaInventario.Query<VisualElement>(className: "inventory-container").ToList();
 
-            // Inicialmente ocultar todos los slots del inventario (opcional)
-            //foreach (var contenedor in listaContenedores)
-            //    contenedor.style.display = DisplayStyle.None;
-
             // JSON (comentado para más adelante)
             //guardar.RegisterCallback<ClickEvent>(GuardarJson);
             //cargar.RegisterCallback<ClickEvent>(CargarJson);
@@ -100,6 +96,7 @@ namespace Project
                 //tarjeta.Q<Label>("LabelDefensa").text = $"Defensa: {nuevo.Defensa}";
                 //tarjeta.Q<Label>("LabelTipo").text = nuevo.TipoObjeto.ToString();
 
+                //VARIABLES DE LA TARJETA
                 var labelN = tarjetaSeleccionada?.Q<Label>("LabelNombre");
                 if (labelN != null) {labelN.text = objetoSeleccionado.Nombre;}
 
@@ -118,6 +115,19 @@ namespace Project
                     string ruta = ObtenerRutaImagen(nuevo.TipoObjeto);
                     imagen.style.backgroundImage = new StyleBackground(Resources.Load<Texture2D>(ruta));
                 }
+
+                //CUSTOM CONTROLS
+                AttackCustomControl ataqueControl = tarjeta.Q<AttackCustomControl>();
+                if (ataqueControl != null)
+                {
+                    ataqueControl.EstadoAtaque = nuevo.Fuerza;
+                }
+
+                DurabilityCustomControl defensaControl = tarjeta.Q<DurabilityCustomControl>();
+                if (defensaControl != null)
+                {
+                    defensaControl.EstadoDurabilidad = nuevo.Defensa;
+                }
             }
         }
 
@@ -126,7 +136,6 @@ namespace Project
         {
             VisualElement current = evt.target as VisualElement;
 
-            // Subir en la jerarquía hasta encontrar un elemento con userData asignado
             while (current != null && current.userData as Objeto == null)
             {
                 current = current.parent;
@@ -170,6 +179,13 @@ namespace Project
                 objetoSeleccionado.Fuerza = evt.newValue;
                 var label = tarjetaSeleccionada?.Q<Label>("LabelFuerza");
                 if (label != null) label.text = $"Fuerza: {objetoSeleccionado.Fuerza}";
+
+
+                AttackCustomControl ataqueControl = tarjetaSeleccionada?.Q<AttackCustomControl>();
+                if (ataqueControl != null)
+                {
+                    ataqueControl.EstadoAtaque = objetoSeleccionado.Fuerza;
+                }
             }
         }
 
@@ -180,6 +196,13 @@ namespace Project
                 objetoSeleccionado.Defensa = evt.newValue;
                 var label = tarjetaSeleccionada?.Q<Label>("LabelDefensa");
                 if (label != null) label.text = $"Defensa: {objetoSeleccionado.Defensa}";
+
+
+                DurabilityCustomControl defensaControl = tarjetaSeleccionada?.Q<DurabilityCustomControl>();
+                if (defensaControl != null)
+                {
+                    defensaControl.EstadoDurabilidad = objetoSeleccionado.Defensa;
+                }
             }
         }
 
