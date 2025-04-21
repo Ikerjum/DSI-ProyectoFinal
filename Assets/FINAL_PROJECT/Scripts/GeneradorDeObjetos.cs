@@ -111,7 +111,6 @@ namespace Project
                 Label tipoL = tarjeta.Q<Label>("LabelTipo");
                 if (tipoL != null) {tipoL.text = nuevo.TipoObjeto.ToString();}
 
-                // Cambiar imagen según tipo
                 VisualElement imagen = tarjeta.Q<VisualElement>("ImagenTipo");
                 if (imagen != null)
                 {
@@ -182,6 +181,13 @@ namespace Project
                 objetoSeleccionado.TipoObjeto = (TipoObjeto)System.Enum.Parse(typeof(TipoObjeto), evt.newValue);
                 var label = tarjetaSeleccionada?.Q<Label>("LabelTipo");
                 if (label != null) label.text = objetoSeleccionado.TipoObjeto.ToString();
+
+                VisualElement imagen = tarjetaSeleccionada?.Q<VisualElement>("ImagenTipo");
+                if (imagen != null)
+                {
+                    string ruta = ObtenerRutaImagen(objetoSeleccionado.TipoObjeto);
+                    imagen.style.backgroundImage = new StyleBackground(Resources.Load<Texture2D>(ruta));
+                }
             }
         }
 
