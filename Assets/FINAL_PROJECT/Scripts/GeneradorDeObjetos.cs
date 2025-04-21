@@ -103,10 +103,10 @@ namespace Project
                 if (labelN != null) {labelN.text = objetoSeleccionado.Nombre;}
 
                 var labelF = tarjetaSeleccionada?.Q<Label>("LabelFuerza");
-                if (labelF != null) {labelF.text = objetoSeleccionado.Nombre;}
+                if (labelF != null) {labelF.text = $"Fuerza: {nuevo.Fuerza}";}
 
                 var labelD = tarjetaSeleccionada?.Q<Label>("LabelDefensa");
-                if (labelD != null) {labelD.text = objetoSeleccionado.Nombre;}
+                if (labelD != null) {labelD.text = $"Defensa: {nuevo.Defensa}";}
 
                 Label tipoL = tarjeta.Q<Label>("LabelTipo");
                 if (tipoL != null) {tipoL.text = nuevo.TipoObjeto.ToString();}
