@@ -38,7 +38,7 @@ namespace Project
 
             // Callbacks
             botonCrear.RegisterCallback<ClickEvent>(CrearObjeto);
-            contenedorObjetos.RegisterCallback<ClickEvent>(SeleccionarTarjeta);
+            //contenedorObjetos.RegisterCallback<ClickEvent>(SeleccionarTarjeta);
             inputNombre.RegisterCallback<ChangeEvent<string>>(CambioNombre);
             inputFuerza.RegisterCallback<ChangeEvent<int>>(CambioFuerza);
             inputDefensa.RegisterCallback<ChangeEvent<int>>(CambioDefensa);
@@ -75,6 +75,7 @@ namespace Project
 
                 VisualTreeAsset plantilla = Resources.Load<VisualTreeAsset>("FP_Object");
                 VisualElement tarjeta = plantilla.Instantiate();
+                tarjeta.RegisterCallback<ClickEvent>(SeleccionarTarjeta);
 
                 contenedorLibre.Add(tarjeta);
                 tarjetas_borde_negro();
@@ -123,13 +124,21 @@ namespace Project
 
         void SeleccionarTarjeta(ClickEvent evt)
         {
-            if (evt.target is VisualElement tarjeta)
+            VisualElement current = evt.target as VisualElement;
+
+            // Subir en la jerarquía hasta encontrar un elemento con userData asignado
+            while (current != null && current.userData as Objeto == null)
             {
-                Objeto obj = (tarjeta as VisualElement)?.userData as Objeto;
+                current = current.parent;
+            }
+
+            if (current != null)
+            {
+                Objeto obj = current.userData as Objeto;
                 if (obj != null)
                 {
                     objetoSeleccionado = obj;
-                    tarjetaSeleccionada = tarjeta;
+                    tarjetaSeleccionada = current;
 
                     inputNombre.SetValueWithoutNotify(obj.Nombre);
                     inputFuerza.SetValueWithoutNotify(obj.Fuerza);
@@ -139,7 +148,7 @@ namespace Project
                     toggleModificar.value = true;
 
                     tarjetas_borde_negro();
-                    tarjeta_borde_blanco(tarjeta);
+                    tarjeta_borde_blanco(current);
                 }
             }
         }
@@ -195,7 +204,7 @@ namespace Project
         {
             foreach (var tarjeta in contenedorObjetos.Children())
             {
-                VisualElement panel = tarjeta.Q("Object");
+                VisualElement panel = tarjeta.Q("FP_Object");
                 if (panel != null)
                 {
                     panel.style.borderBottomColor = Color.black;
@@ -204,11 +213,12 @@ namespace Project
                     panel.style.borderRightColor = Color.black;
                 }
             }
+            
         }
 
         void tarjeta_borde_blanco(VisualElement tarjeta)
         {
-            VisualElement panel = tarjeta.Q("Object");
+            VisualElement panel = tarjeta.Q("FP_Object");
             if (panel != null)
             {
                 panel.style.borderBottomColor = Color.white;
