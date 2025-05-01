@@ -3,9 +3,7 @@
         <ui:VisualElement name="Inventory" style="flex-grow: 1; height: auto; width: 65%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); flex-direction: column; background-color: rgb(128, 128, 128);">
             <ui:VisualElement name="TitleInventoryContainer" style="flex-grow: 0; flex-direction: row;">
                 <ui:Button name="CloseInventoryButton" text="X" style="width: 80px;" />
-                <ui:VisualElement style="flex-grow: 1; align-items: center;">
-                    <ui:Label text="INVENTORY" style="-unity-font-style: bold; -unity-text-align: upper-center; font-size: 57px;" />
-                </ui:VisualElement>
+                <ui:Label text="INVENTORY" name="InventoryLabel" style="-unity-font-style: bold; -unity-text-align: upper-center; font-size: 57px; width: 597px; flex-grow: 1;" />
             </ui:VisualElement>
             <ui:VisualElement name="InventoryContainerList" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; height: auto;">
                 <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
@@ -24,7 +22,7 @@
                 <ui:TextField name="InputNombre" label="Nombre" style="margin-bottom: 10px;" />
                 <ui:IntegerField name="InputFuerza" label="Fuerza" style="margin-bottom: 10px;" />
                 <ui:IntegerField name="InputDefensa" label="Defensa" style="margin-bottom: 10px;" />
-                <ui:DropdownField name="DropdownTipo" label="Tipo de Objeto" style="margin-bottom: 10px;" />
+                <ui:DropdownField label="Tipo de Objeto" name="DropdownTipo" />
                 <ui:Toggle name="ToggleModificar" label="Modificar" style="margin-bottom: 10px;" />
                 <ui:Button name="BotonCrear" text="Crear / Modificar Objeto" style="margin-top: 15px; height: 40px;" />
             </ui:VisualElement>

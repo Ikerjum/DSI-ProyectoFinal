@@ -24,7 +24,7 @@ namespace Project
     public class Objeto
     {
 
-        [SerializeField] private string nombre;
+        [SerializeField] private string nombre = "Sin nombre";
         public string Nombre
         {
             get { return nombre; }

@@ -19,6 +19,8 @@ namespace Project
         List<Objeto> objetos = new List<Objeto>();
         List<VisualElement> listaContenedores = new List<VisualElement>();
 
+        VisualElement tarjetaArrastrada;
+
         private void OnEnable()
         {
             VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -73,13 +75,25 @@ namespace Project
                 VisualElement tarjeta = plantilla.Instantiate();
                 tarjeta.RegisterCallback<ClickEvent>(SeleccionarTarjeta);
 
+                // Movimiento del objeto
+                tarjeta.RegisterCallback<PointerDownEvent>(evt => IniciarArrastre(tarjeta, evt));
+                tarjeta.RegisterCallback<PointerMoveEvent>(evt => ActualizarArrastre(evt));
+                tarjeta.RegisterCallback<PointerUpEvent>(evt => FinalizarArrastre(evt));
+
+
                 contenedorLibre.Add(tarjeta);
                 tarjetas_borde_negro();
                 tarjeta_borde_blanco(tarjeta);
 
+
+                if (inputFuerza.value >= 5) inputFuerza.value = 5;
+                else if (inputFuerza.value <= 0) inputFuerza.value = 0;
+                if (inputDefensa.value >= 5) inputDefensa.value = 5; 
+                else if (inputDefensa.value <= 0) inputDefensa.value = 0;
+
                 Objeto nuevo = new Objeto(
-                    inputNombre.value,
-                    (TipoObjeto)System.Enum.Parse(typeof(TipoObjeto), dropdownTipo.value),
+                    string.IsNullOrEmpty(inputNombre.value) ? "Sin nombre" : inputNombre.value,
+                    (TipoObjeto)System.Enum.Parse(typeof(TipoObjeto), string.IsNullOrEmpty(dropdownTipo.value) ? TipoObjeto.Arma.ToString() : dropdownTipo.value),
                     inputFuerza.value,
                     inputDefensa.value
                 );
@@ -166,7 +180,7 @@ namespace Project
         {
             if (toggleModificar.value && objetoSeleccionado != null)
             {
-                objetoSeleccionado.Nombre = evt.newValue;
+                objetoSeleccionado.Nombre = string.IsNullOrEmpty(evt.newValue) ? "Sin nombre" : evt.newValue;
                 var label = tarjetaSeleccionada?.Q<Label>("LabelNombre");
                 if (label != null) label.text = objetoSeleccionado.Nombre;
             }
@@ -176,7 +190,10 @@ namespace Project
         {
             if (toggleModificar.value && objetoSeleccionado != null)
             {
-                objetoSeleccionado.Fuerza = evt.newValue;
+                if (evt.newValue >= 5) objetoSeleccionado.Fuerza = 5;
+                else if (evt.newValue <= 0) objetoSeleccionado.Fuerza = 0;
+                else objetoSeleccionado.Fuerza = evt.newValue;
+                
                 var label = tarjetaSeleccionada?.Q<Label>("LabelFuerza");
                 if (label != null) label.text = $"Fuerza: {objetoSeleccionado.Fuerza}";
 
@@ -193,7 +210,11 @@ namespace Project
         {
             if (toggleModificar.value && objetoSeleccionado != null)
             {
-                objetoSeleccionado.Defensa = evt.newValue;
+                
+                if (evt.newValue >= 5) objetoSeleccionado.Defensa = 5;
+                else if (evt.newValue <= 0) objetoSeleccionado.Defensa = 0;
+                else objetoSeleccionado.Defensa = evt.newValue;
+
                 var label = tarjetaSeleccionada?.Q<Label>("LabelDefensa");
                 if (label != null) label.text = $"Defensa: {objetoSeleccionado.Defensa}";
 
@@ -210,7 +231,10 @@ namespace Project
         {
             if (toggleModificar.value && objetoSeleccionado != null)
             {
-                objetoSeleccionado.TipoObjeto = (TipoObjeto)System.Enum.Parse(typeof(TipoObjeto), evt.newValue);
+                objetoSeleccionado.TipoObjeto = (TipoObjeto)System.Enum.Parse(
+                    typeof(TipoObjeto), 
+                    string.IsNullOrEmpty(evt.newValue) ? dropdownTipo.choices[0] : evt.newValue
+                );
                 var label = tarjetaSeleccionada?.Q<Label>("LabelTipo");
                 if (label != null) label.text = objetoSeleccionado.TipoObjeto.ToString();
 
@@ -267,6 +291,56 @@ namespace Project
                 case TipoObjeto.Miscelaneo: return "FP_iconos/FP_miscelaneo";
                 default: return "FP_iconos/FP_default";
             }
+        }
+
+        void IniciarArrastre(VisualElement tarjeta, PointerDownEvent evt)
+        {
+            tarjetaArrastrada = tarjeta;
+            tarjeta.style.position = Position.Absolute;
+            tarjeta.BringToFront();
+
+            foreach (var contenedor in listaContenedores)
+            {
+                Debug.Log($"Contenedor: {contenedor.name}");
+                foreach (var child in contenedor.Children())
+                {
+                    Debug.Log($"  Hijo: {child.name}");
+                }
+            }
+        }
+
+        void ActualizarArrastre(PointerMoveEvent evt)
+        {
+            if (tarjetaArrastrada != null)
+            {
+                tarjetaArrastrada.style.left = evt.position.x - tarjetaArrastrada.layout.width / 2;
+                tarjetaArrastrada.style.top = evt.position.y - tarjetaArrastrada.layout.height / 2;
+            }
+        }
+
+        void FinalizarArrastre(PointerUpEvent evt)
+        {
+            if (tarjetaArrastrada == null) return;
+
+            VisualElement destino = listaContenedores.FirstOrDefault(c => 
+                c.worldBound.Overlaps(tarjetaArrastrada.worldBound) && 
+                (c.childCount == 0 || !c.Children().Contains(tarjetaArrastrada))
+            );
+
+            if (destino != null)
+            {
+                tarjetaArrastrada.style.position = Position.Relative;
+                tarjetaArrastrada.style.left = tarjetaArrastrada.style.top = StyleKeyword.Null;
+                destino.Add(tarjetaArrastrada);
+            }
+            else
+            {
+                // Vuelve al contenedor original si no se suelta en uno válido
+                tarjetaArrastrada.style.position = Position.Relative;
+                tarjetaArrastrada.style.left = tarjetaArrastrada.style.top = StyleKeyword.Null;
+            }
+
+            tarjetaArrastrada = null;
         }
     }
 }
