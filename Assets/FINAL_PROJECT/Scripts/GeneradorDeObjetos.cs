@@ -38,6 +38,12 @@ namespace Project
             // Opciones enum para el dropdown
             dropdownTipo.choices = System.Enum.GetNames(typeof(TipoObjeto)).ToList();
 
+            // Anadir manipuladores a los contenedores
+            // contenedorObjetos.AddManipulator(new DragDropManager());
+            
+            List<VisualElement> lista_objetos = new List<VisualElement>(contenedorObjetos.Children());
+            lista_objetos.ForEach(elem => elem.AddManipulator(new DragDropManager()));
+
             // Callbacks
             botonCrear.RegisterCallback<ClickEvent>(CrearObjeto);
             //contenedorObjetos.RegisterCallback<ClickEvent>(SeleccionarTarjeta);
@@ -74,11 +80,6 @@ namespace Project
                 VisualTreeAsset plantilla = Resources.Load<VisualTreeAsset>("FP_Object");
                 VisualElement tarjeta = plantilla.Instantiate();
                 tarjeta.RegisterCallback<ClickEvent>(SeleccionarTarjeta);
-
-                // Movimiento del objeto
-                tarjeta.RegisterCallback<PointerDownEvent>(evt => IniciarArrastre(tarjeta, evt));
-                tarjeta.RegisterCallback<PointerMoveEvent>(evt => ActualizarArrastre(evt));
-                tarjeta.RegisterCallback<PointerUpEvent>(evt => FinalizarArrastre(evt));
 
 
                 contenedorLibre.Add(tarjeta);
@@ -291,56 +292,6 @@ namespace Project
                 case TipoObjeto.Miscelaneo: return "FP_iconos/FP_miscelaneo";
                 default: return "FP_iconos/FP_default";
             }
-        }
-
-        void IniciarArrastre(VisualElement tarjeta, PointerDownEvent evt)
-        {
-            tarjetaArrastrada = tarjeta;
-            tarjeta.style.position = Position.Absolute;
-            tarjeta.BringToFront();
-
-            foreach (var contenedor in listaContenedores)
-            {
-                Debug.Log($"Contenedor: {contenedor.name}");
-                foreach (var child in contenedor.Children())
-                {
-                    Debug.Log($"  Hijo: {child.name}");
-                }
-            }
-        }
-
-        void ActualizarArrastre(PointerMoveEvent evt)
-        {
-            if (tarjetaArrastrada != null)
-            {
-                tarjetaArrastrada.style.left = evt.position.x - tarjetaArrastrada.layout.width / 2;
-                tarjetaArrastrada.style.top = evt.position.y - tarjetaArrastrada.layout.height / 2;
-            }
-        }
-
-        void FinalizarArrastre(PointerUpEvent evt)
-        {
-            if (tarjetaArrastrada == null) return;
-
-            VisualElement destino = listaContenedores.FirstOrDefault(c => 
-                c.worldBound.Overlaps(tarjetaArrastrada.worldBound) && 
-                (c.childCount == 0 || !c.Children().Contains(tarjetaArrastrada))
-            );
-
-            if (destino != null)
-            {
-                tarjetaArrastrada.style.position = Position.Relative;
-                tarjetaArrastrada.style.left = tarjetaArrastrada.style.top = StyleKeyword.Null;
-                destino.Add(tarjetaArrastrada);
-            }
-            else
-            {
-                // Vuelve al contenedor original si no se suelta en uno válido
-                tarjetaArrastrada.style.position = Position.Relative;
-                tarjetaArrastrada.style.left = tarjetaArrastrada.style.top = StyleKeyword.Null;
-            }
-
-            tarjetaArrastrada = null;
         }
     }
 }
