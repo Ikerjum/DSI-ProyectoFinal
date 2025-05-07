@@ -1,0 +1,14 @@
+ENLACE AL REPO DE GITHUB
+https://github.com/Ikerjum/DSI-ProyectoFinal
+
+En la jerarquía:
+UIDocument debe tener de sourceAsset: Inventory(Visual Tree Asset)
+
+Para cargar la escena:
+Assets/FINAL_PROJECT/final_project_scene
+
+En la carpeta resources esta el JSON:
+objetos.JSON para cambiar los objetos generados
+
+En Assets/FINAL_PROJECT y en Resources los archivos con el encabezado FP_ se encuentra todo lo utilizado para el proyecto final.
+

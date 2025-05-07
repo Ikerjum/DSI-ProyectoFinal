@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="InventoryMenu" style="flex-grow: 1; flex-direction: row;">
+    <ui:VisualElement name="InventoryMenu" style="flex-grow: 1; flex-direction: row; background-image: resource(&apos;FP_FondoProyecto&apos;);">
         <ui:VisualElement name="Inventory" style="flex-grow: 1; height: auto; width: 65%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); flex-direction: column; background-color: rgb(128, 128, 128); background-image: resource(&apos;FP_FondoInventario&apos;);">
             <ui:VisualElement name="TitleInventoryContainer" style="flex-grow: 0; flex-direction: row;">
                 <ui:Label text="INVENTORY" name="InventoryLabel" style="-unity-font-style: bold; -unity-text-align: upper-center; font-size: 30px; width: 597px; flex-grow: 1; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font2/pixelfont2.ttf?fileID=12800000&amp;guid=a6dede01cb8e479429b8bc5253a2ad2f&amp;type=3#pixelfont2&quot;); -unity-font-definition: initial; color: rgb(255, 255, 255);" />
