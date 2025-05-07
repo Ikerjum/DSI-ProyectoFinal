@@ -1,0 +1,40 @@
+{
+    "Objetos": [
+        {
+            "nombre": "Espada de Fuego",
+            "tipoObjeto": 0,
+            "fuerza": 5,
+            "defensa": 1
+        },
+        {
+            "nombre": "Armadura de Dragón",
+            "tipoObjeto": 1,
+            "fuerza": 1,
+            "defensa": 5
+        },
+        {
+            "nombre": "Poción de Salud",
+            "tipoObjeto": 6,
+            "fuerza": 0,
+            "defensa": 3
+        },
+        {
+            "nombre": "Pico de Minero",
+            "tipoObjeto": 3,
+            "fuerza": 3,
+            "defensa": 0
+        },
+        {
+            "nombre": "Cristal Mágico",
+            "tipoObjeto": 4,
+            "fuerza": 2,
+            "defensa": 2
+        },
+        {
+            "nombre": "Amuleto de Protección",
+            "tipoObjeto": 5,
+            "fuerza": 0,
+            "defensa": 4
+        }
+    ]
+}

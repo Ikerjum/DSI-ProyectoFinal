@@ -2,6 +2,7 @@ using UnityEngine.UIElements;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace Project
 {
@@ -9,6 +10,10 @@ namespace Project
     {
         VisualElement contenedorObjetos;
         Button botonCrear;
+        Button botonGuardar;
+        Button botonCargar;
+        Button botonLimpiar;
+        Button botonEliminar;
         Toggle toggleModificar;
         TextField inputNombre;
         IntegerField inputFuerza;
@@ -58,9 +63,28 @@ namespace Project
             // Obtener todos los Containers (VisualElements con instancia del template dentro)
             listaContenedores = listaInventario.Query<VisualElement>(className: "inventory-container").ToList();
 
-            // JSON (comentado para más adelante)
-            //guardar.RegisterCallback<ClickEvent>(GuardarJson);
-            //cargar.RegisterCallback<ClickEvent>(CargarJson);
+            // JSON
+            botonGuardar = root.Q<Button>("BotonGuardar");
+            botonGuardar.RegisterCallback<ClickEvent>(GuardarJson);
+            botonCargar = root.Q<Button>("BotonCargar");
+            botonCargar.RegisterCallback<ClickEvent>(CargarJson);
+
+            // Limpiar y eliminar objetos
+            botonLimpiar = root.Q<Button>("BotonLimpiar");
+            botonLimpiar.RegisterCallback<ClickEvent>(LimpiarInventarioClick);
+            botonEliminar = root.Q<Button>("BotonEliminar");
+            botonEliminar.RegisterCallback<ClickEvent>(EliminarObjeto);
+            
+            // Ocultar botón eliminar por defecto
+            botonEliminar.style.display = DisplayStyle.None;
+            
+            // Añadir callback para mostrar/ocultar el botón eliminar según el toggle
+            toggleModificar.RegisterValueChangedCallback(evt => {
+                botonEliminar.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+            });
+            
+            // Intenta cargar los objetos guardados al iniciar
+            CargarObjetosGuardados();
         }
 
 
@@ -146,6 +170,143 @@ namespace Project
             }
         }
 
+        public bool CrearObjetoPar(string nombre, TipoObjeto tipoObjeto, int fuerza, int defensa)
+        {
+            try
+            {
+                // Encontrar un contenedor libre
+                VisualElement contenedorLibre = listaContenedores.FirstOrDefault(c => c.childCount == 0 || c.Q("Object") == null);
+
+                if (contenedorLibre == null)
+                {
+                    Debug.LogWarning("No hay contenedores libres disponibles.");
+                    return false;
+                }
+
+                VisualTreeAsset plantilla = Resources.Load<VisualTreeAsset>("FP_Object");
+                if (plantilla == null)
+                {
+                    Debug.LogError("No se pudo cargar la plantilla FP_Object");
+                    return false;
+                }
+
+                VisualElement tarjeta = plantilla.Instantiate();
+                tarjeta.RegisterCallback<ClickEvent>(SeleccionarTarjeta);
+
+                contenedorLibre.Add(tarjeta);
+                tarjetas_borde_negro();
+                tarjeta_borde_blanco(tarjeta);
+
+                // Validar valores
+                fuerza = Mathf.Clamp(fuerza, 0, 5);
+                defensa = Mathf.Clamp(defensa, 0, 5);
+
+                Objeto nuevo = new Objeto(
+                    string.IsNullOrEmpty(nombre) ? "Sin nombre" : nombre,
+                    tipoObjeto,
+                    fuerza,
+                    defensa
+                );
+
+                tarjeta.userData = nuevo;
+                objetos.Add(nuevo);
+
+                // Mostrar info en la tarjeta
+                ActualizarTarjeta(tarjeta, nuevo);
+
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error al crear objeto: {ex.Message}");
+                return false;
+            }
+        }
+
+        // Método auxiliar para actualizar la tarjeta con los datos del objeto
+        private void ActualizarTarjeta(VisualElement tarjeta, Objeto obj)
+        {
+            var labelN = tarjeta.Q<Label>("LabelNombre");
+            if (labelN != null) { labelN.text = obj.Nombre; }
+
+            var labelF = tarjeta.Q<Label>("LabelFuerza");
+            if (labelF != null) { labelF.text = $"Fuerza: {obj.Fuerza}"; }
+
+            var labelD = tarjeta.Q<Label>("LabelDefensa");
+            if (labelD != null) { labelD.text = $"Defensa: {obj.Defensa}"; }
+
+            Label tipoL = tarjeta.Q<Label>("LabelTipo");
+            if (tipoL != null) { tipoL.text = obj.TipoObjeto.ToString(); }
+
+            VisualElement imagen = tarjeta.Q<VisualElement>("ImagenTipo");
+            if (imagen != null)
+            {
+                string ruta = ObtenerRutaImagen(obj.TipoObjeto);
+                imagen.style.backgroundImage = new StyleBackground(Resources.Load<Texture2D>(ruta));
+            }
+
+            // CUSTOM CONTROLS
+            AttackCustomControl ataqueControl = tarjeta.Q<AttackCustomControl>();
+            if (ataqueControl != null)
+            {
+                ataqueControl.EstadoAtaque = obj.Fuerza;
+            }
+
+            DurabilityCustomControl defensaControl = tarjeta.Q<DurabilityCustomControl>();
+            if (defensaControl != null)
+            {
+                defensaControl.EstadoDurabilidad = obj.Defensa;
+            }
+        }
+
+        // Serialización/Deserialización JSON
+        void GuardarJson(ClickEvent evt)
+        {            
+            string json = JsonHelper.ToJson(objetos, true);
+            string path = Path.Combine(Application.dataPath, "Resources", "objetosJSON.json");
+            File.WriteAllText(path, json);
+            Debug.Log("Guardado en: " + path);
+        }
+
+        void CargarJson(ClickEvent evt)
+        {
+            // Limpiar objetos existentes antes de cargar
+            LimpiarInventario();
+            CargarObjetosGuardados();
+        }
+
+        void CargarObjetosGuardados()
+        {
+            string jsonPath = "objetosJSON";
+            TextAsset jsonFile = Resources.Load<TextAsset>(jsonPath);
+            string jsonString = jsonFile.text;
+            
+            List<Objeto> objetosCargados = JsonHelper.FromJson<Objeto>(jsonString);
+            
+            var copiaObjetos = new List<Objeto>(objetosCargados);
+            
+            foreach (var objeto in copiaObjetos)
+            {
+                CrearObjetoPar(objeto.Nombre, objeto.TipoObjeto, objeto.Fuerza, objeto.Defensa);
+            }
+        }
+
+        void LimpiarInventarioClick(ClickEvent evt)
+        {
+            LimpiarInventario();
+        }
+
+        void LimpiarInventario()
+        {
+            // Elimina todos los objetos actuales
+            foreach (var contenedor in listaContenedores)
+            {
+                contenedor.Clear();
+            }
+            objetos.Clear();
+            objetoSeleccionado = null;
+            tarjetaSeleccionada = null;
+        }
 
         void SeleccionarTarjeta(ClickEvent evt)
         {
@@ -291,6 +452,34 @@ namespace Project
                 case TipoObjeto.Llave: return "FP_iconos/FP_llave";
                 case TipoObjeto.Miscelaneo: return "FP_iconos/FP_miscelaneo";
                 default: return "FP_iconos/FP_default";
+            }
+        }
+
+        void EliminarObjeto(ClickEvent evt)
+        {
+            if (toggleModificar.value && objetoSeleccionado != null && tarjetaSeleccionada != null)
+            {
+                VisualElement contenedor = tarjetaSeleccionada.parent;
+                
+                // Eliminar el objeto de la lista
+                objetos.Remove(objetoSeleccionado);
+                
+                // Limpiar el contenedor visual
+                if (contenedor != null)
+                {
+                    contenedor.Clear();
+                }
+                
+                // Restablecer referencias
+                objetoSeleccionado = null;
+                tarjetaSeleccionada = null;
+                toggleModificar.value = false;
+                
+                // Limpiar campos de entrada
+                inputNombre.SetValueWithoutNotify("");
+                inputFuerza.SetValueWithoutNotify(0);
+                inputDefensa.SetValueWithoutNotify(0);
+                dropdownTipo.SetValueWithoutNotify(TipoObjeto.Arma.ToString());
             }
         }
     }
