@@ -56,16 +56,16 @@ public class AttackCustomControl : VisualElement
         for (int i = 0; i < 5; i++)
         {
             Espadas[i] = new VisualElement();
-            Espadas[i].style.width = 50;
-            Espadas[i].style.height = 50;
+            Espadas[i].style.width = 35;
+            Espadas[i].style.height = 35;
             Espadas[i].style.backgroundColor = new Color(1f, 0f, 0f, 1f); // Rojo con opacidad 100%
             Espadas[i].style.backgroundImage = new StyleBackground(Swords);
             Espadas[i].AddToClassList("panel_round");
 
             //Contenedor hijo para el marco
             var contenedor = new VisualElement();
-            contenedor.style.width = 50;
-            contenedor.style.height = 50;
+            contenedor.style.width = 35;
+            contenedor.style.height = 35;
             //contenedor.style.marginLeft = 2;
             //contenedor.style.marginRight = -2; // Espaciado horizontal (puedes usar marginLeft también)
             //contenedor.style.marginTop = 2;

@@ -7,13 +7,13 @@
             "defensa": 1
         },
         {
-            "nombre": "Armadura de Dragón",
+            "nombre": "Armadura de Dragon",
             "tipoObjeto": 1,
             "fuerza": 1,
             "defensa": 5
         },
         {
-            "nombre": "Poción de Salud",
+            "nombre": "Pocion de Salud",
             "tipoObjeto": 6,
             "fuerza": 0,
             "defensa": 3
@@ -25,13 +25,13 @@
             "defensa": 0
         },
         {
-            "nombre": "Cristal Mágico",
+            "nombre": "Cristal Magico",
             "tipoObjeto": 4,
             "fuerza": 2,
             "defensa": 2
         },
         {
-            "nombre": "Amuleto de Protección",
+            "nombre": "Amuleto de Proteccion",
             "tipoObjeto": 5,
             "fuerza": 0,
             "defensa": 4

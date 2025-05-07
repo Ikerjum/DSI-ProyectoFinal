@@ -56,15 +56,15 @@ public class DurabilityCustomControl : VisualElement
         for (int i = 0; i < 5; i++)
         {
             Escudos[i] = new VisualElement();
-            Escudos[i].style.width = 50;
-            Escudos[i].style.height = 50;
+            Escudos[i].style.width = 35;
+            Escudos[i].style.height = 35;
             Escudos[i].style.backgroundColor = new Color(0f, 0f, 1f, 1f); // Azul con opacidad 100%
             Escudos[i].style.backgroundImage = new StyleBackground(Shields);
             Escudos[i].AddToClassList("panel_round");
             
             var contenedor = new VisualElement();
-            contenedor.style.width = 50;
-            contenedor.style.height = 50;
+            contenedor.style.width = 35;
+            contenedor.style.height = 35;
             contenedor.style.backgroundImage = new StyleBackground(Background);
             
             Escudos[i].Add(contenedor);
