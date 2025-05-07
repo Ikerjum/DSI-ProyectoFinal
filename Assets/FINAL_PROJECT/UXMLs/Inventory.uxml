@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement name="InventoryMenu" style="flex-grow: 1; flex-direction: row;">
-        <ui:VisualElement name="Inventory" style="flex-grow: 1; height: auto; width: 65%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); flex-direction: column; background-color: rgb(128, 128, 128);">
+        <ui:VisualElement name="Inventory" style="flex-grow: 1; height: auto; width: 65%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); flex-direction: column; background-color: rgb(128, 128, 128); background-image: resource(&apos;FP_FondoInventario&apos;);">
             <ui:VisualElement name="TitleInventoryContainer" style="flex-grow: 0; flex-direction: row;">
                 <ui:Button name="CloseInventoryButton" text="X" style="width: 80px;" />
-                <ui:Label text="INVENTORY" name="InventoryLabel" style="-unity-font-style: bold; -unity-text-align: upper-center; font-size: 57px; width: 597px; flex-grow: 1;" />
+                <ui:Label text="INVENTORY" name="InventoryLabel" style="-unity-font-style: bold; -unity-text-align: upper-center; font-size: 30px; width: 597px; flex-grow: 1; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font2/pixelfont2.ttf?fileID=12800000&amp;guid=a6dede01cb8e479429b8bc5253a2ad2f&amp;type=3#pixelfont2&quot;); -unity-font-definition: initial; color: rgb(255, 255, 255);" />
             </ui:VisualElement>
             <ui:VisualElement name="InventoryContainerList" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; height: auto;">
                 <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
@@ -14,17 +14,17 @@
                 <ui:VisualElement name="Container" class="inventory-container" style="flex-grow: 1; height: 50%; width: 33%;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="ItemCreation" style="flex-grow: 1; width: 35%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); flex-direction: column;">
+        <ui:VisualElement name="ItemCreation" style="flex-grow: 1; width: 35%; padding: 15px; margin: 15px; border-width: 10px; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); flex-direction: column; background-image: resource(&apos;FP_FondoInventario&apos;);">
             <ui:VisualElement name="TitleInventory">
-                <ui:Label text="CREATION" style="-unity-font-style: bold; -unity-text-align: middle-center; font-size: 57px;" />
+                <ui:Label text="CREATION" style="-unity-font-style: bold; -unity-text-align: middle-center; font-size: 30px; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font2/pixelfont2.ttf?fileID=12800000&amp;guid=a6dede01cb8e479429b8bc5253a2ad2f&amp;type=3#pixelfont2&quot;); -unity-font-definition: initial; color: rgb(255, 255, 255);" />
             </ui:VisualElement>
             <ui:VisualElement name="DisplayInventory" style="flex-grow: 1; flex-direction: column; justify-content: space-between;">
-                <ui:TextField name="InputNombre" label="Nombre" style="margin-bottom: 10px;" />
-                <ui:IntegerField name="InputFuerza" label="Fuerza" style="margin-bottom: 10px;" />
-                <ui:IntegerField name="InputDefensa" label="Defensa" style="margin-bottom: 10px;" />
-                <ui:DropdownField label="Tipo de Objeto" name="DropdownTipo" />
-                <ui:Toggle name="ToggleModificar" label="Modificar" style="margin-bottom: 10px;" />
-                <ui:Button name="BotonCrear" text="Crear / Modificar Objeto" style="margin-top: 15px; height: 40px;" />
+                <ui:TextField name="InputNombre" label="Nombre" style="margin-bottom: 10px; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font1/pixelfont.ttf?fileID=12800000&amp;guid=b6349d08a5335cd4aa534282435d11cc&amp;type=3#pixelfont&quot;); -unity-font-definition: initial; font-size: 20px;" />
+                <ui:IntegerField name="InputFuerza" label="Fuerza" style="margin-bottom: 10px; font-size: 20px; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font1/pixelfont.ttf?fileID=12800000&amp;guid=b6349d08a5335cd4aa534282435d11cc&amp;type=3#pixelfont&quot;); -unity-font-definition: initial;" />
+                <ui:IntegerField name="InputDefensa" label="Defensa" style="margin-bottom: 10px; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font1/pixelfont.ttf?fileID=12800000&amp;guid=b6349d08a5335cd4aa534282435d11cc&amp;type=3#pixelfont&quot;); -unity-font-definition: initial; font-size: 20px;" />
+                <ui:DropdownField label="Tipo" name="DropdownTipo" style="font-size: 20px; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font1/pixelfont.ttf?fileID=12800000&amp;guid=b6349d08a5335cd4aa534282435d11cc&amp;type=3#pixelfont&quot;); -unity-font-definition: initial;" />
+                <ui:Toggle name="ToggleModificar" label="Modificar" style="margin-bottom: 10px; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font1/pixelfont.ttf?fileID=12800000&amp;guid=b6349d08a5335cd4aa534282435d11cc&amp;type=3#pixelfont&quot;); -unity-font-definition: initial; font-size: 20px;" />
+                <ui:Button name="BotonCrear" text="Crear / Modificar Objeto" style="margin-top: 15px; height: 40px; -unity-font: url(&quot;project://database/Assets/FINAL_PROJECT/SimplePixelUI/fonts/Font1/pixelfont.ttf?fileID=12800000&amp;guid=b6349d08a5335cd4aa534282435d11cc&amp;type=3#pixelfont&quot;); -unity-font-definition: initial; font-size: 15px;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
