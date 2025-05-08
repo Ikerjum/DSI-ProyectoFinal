@@ -11,7 +11,7 @@ namespace Project
 
         public DragDropManager()
         {
-            activators.Add(new ManipulatorActivationFilter { button = MouseButton.LeftMouse });
+            // activators.Add(new ManipulatorActivationFilter { button = MouseButton.LeftMouse });
         }
 
         protected override void RegisterCallbacksOnTarget()
