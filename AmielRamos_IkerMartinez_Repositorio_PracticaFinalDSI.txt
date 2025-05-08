@@ -1,6 +1,9 @@
 ENLACE AL REPO DE GITHUB
 https://github.com/Ikerjum/DSI-ProyectoFinal
 
+VERSIÓN UNITY
+2022.3.40f1
+
 En la jerarquía:
 UIDocument debe tener de sourceAsset: Inventory(Visual Tree Asset)
 
